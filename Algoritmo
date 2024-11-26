@@ -1,1 +1,49 @@
+# importar numpy as np 
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+import matlotlib.pylot as plt
 
+# Generar datos de la tabla
+ID clientes = np.ramdom.radint(0, 100, size=1000
+Genero = np.ramdom.radint(0, 20, size=1000)
+Edad = np.ramdom.radint(0, 80, size=1000)
+Ingresos Anuales = np.ramdom.radint(0, 1000, size=1000)
+Puntuación de gastos = np.ramdom.radint(0, 1000, size=1000)
+
+# Crear DataFrame con los Datos Generados
+df = pd.DataFrame({'Id' :ID clientes, 'clientes' :clientes, 'Edad' :Edad, 'ingresos anuales':Ingreso Anuales, 'puntuación de gastos':Puntuación de gastos })
+
+# Definir las variables independientes (x) y la variable dependiente (y)
+x = df.drop('Casps' ,axis=1) #Variables indepensientes: Edad, Ingresos Anuales, Puntuación de gastos
+y = df['clientes']#Variable dependiente: Clientes
+
+# Dividir los datos en conjunto de entrenamiento y conjunto de prueba
+X_train, X_test, y_train, y_test = train_test_split(X, Y, text_size=0.2, random:state=42)ttttt
+
+# Crear un modelo de regresión lineal
+regression_model = LinearRegression()
+#Ajustar el modelo a los datos de entrenamiento
+regression_model.fit(X_train, y_train)
+
+#Graficar los datos de prueba y las predicciones del modelo
+plt.scatter(X_test['Edad'], y_test, color='Blue', label='Datos reales')
+plt.scatter(X_test['Ingresos Anuales'], y_pred, color='red', label='Predicciones')
+plt.xlabel('Ingresos')
+plt.ylabel('Puntuacion de gastos')
+plt.legend()
+plt.tittle('Regresion Lineal: Ingresos vs. puntuacion de gastos')
+plt.show()
+
+#Imprimir los coeficientes de regresión y el interpretado
+print('Coeficientes:' , regression_model.Coef_)
+print('Intercepto:' , regression_model.intercept_)
+
+#Hace las predicciones en el conjunto de prueba
+y_pred = regression_model.predict(X_test)
+
+#calcular el error cuadrático
+erro_cuadratico = mean_squared_error(y_test,y_pred)
+
+print('Error cuadrático:', erro_cuadratico)
